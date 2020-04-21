@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPSGame.html</title>
+</head>
+<script>
+       
+    function gameStart(user){
+        console.log(user);
+
+        // 난수생성
+        var com = parseInt((Math.random()*10) % 3+1);
+            console.log(com);
+
+        // 유저가 내는 가위바위보
+        var user_img = document.getElementById("user.img");
+            if(user == 1){
+            user_img.src = " ./images/scissors.jpg";
+            }
+            else if(user == 2){
+                user_img.src = " ./images/rock.jpg";
+            }
+            else if(user == 3){
+                user_img.src = " ./images/paper.jpg";
+            }
+
+        // 피씨가 내는 가위바위보
+        var com_img = document.getElementById("com.img");
+            if(com == 1){
+                com_img.src = " ./images/scissors.jpg";
+            }
+            else if(com == 2){
+                com_img.src = " ./images/rock.jpg";
+            }
+            else if(com == 3){
+                com_img.src = " ./images/paper.jpg";
+            }
+
+        // 승부
+        switch(user - com) {
+            case 0:
+            document.getElementById("result").innerText = "비겼습니다.";
+            console.log("비겼다.")
+            break;
+
+            case 1: case -2:
+            document.getElementById("result").innerText = "이겼습니다.";
+            console.log("이겼다.")
+            break;
+
+            case -1: case 2:
+            document.getElementById("result").innerText = "졌습니다.";
+            console.log("졌다.")
+            break;
+        }
+    } // end of function
+</script>
+<body>  
+
+    <h3>가위바위보게임</h3>
+				
+    <table border=1> 
+        <colgroup>
+            <col width="50%"/>
+            <col width="50%"/>           
+        </colgroup>
+
+        <!-- 1행 -->
+        <tr style=height:30px>
+            <td>컴퓨터</td>
+            <td>나</td>            
+        </tr>
+
+        <!-- 2행 -->
+        <tr style=height:100px>           
+             <!--com 이미지  -->
+            <td><img id ="com.img" src="./images/start.png" alt="" ></td>
+
+            <!--user 이미지  -->
+            <td><img id ="user.img" src="./images/start.png" alt="" ></td>
+        </tr>
+
+         <!-- 3행 -->   
+         <tr>
+            <td id="result" colspan="2"
+            style="font-size:2em; color:red"> &nbsp;
+            </td>
+         </tr>
+         
+        <!-- 가위 바위 보 버튼 -->
+        <tr style=height:30px >
+            <td colspan="2">               
+                <input type="button" onclick="gameStart(1);" value="가위" />                
+                <input type="button" onclick="gameStart(2);" value="바위" />               
+                <input type="button" onclick="gameStart(3);" value="보" />                
+            </td>                     
+        </tr>
+    </table>
+</body>
+</html>
