@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J17CssControl.html</title>
+
+    <script>
+        var pTag, pSize;
+
+        window.onload = function(){
+            pTag = document.getElementById("article");
+            pSize = parseInt(pTag.style.fontSize);
+        }
+
+        function fnArticle(flag){
+
+            switch(flag){
+            case "+":
+                pSize +=10;
+                pTag.style.fontSize = pSize+"px";
+                break;
+
+            case "-":
+                pSize -= 10;
+                pTag.style.fontSize = pSize+"px";
+                break;
+
+            case "R":
+                pTag.style.color = "red";
+                break;
+
+            case "G":
+                pTag.style.color = "green";
+                break;
+
+            case "B":
+                pTag.style.color = "blue";
+                break;
+
+            case "Bo":
+                pTag.style.fontWeight = "bold";
+                break;
+
+            case "No":
+                pTag.style.fontWeight = "normal";
+                break;
+
+            case "Ce":
+                pTag.style.textAlign = "center";
+                break;
+
+            case "Le":
+                pTag.style.textAlign = "left";
+                break;
+
+            default:
+                pTag.style.color = "black";
+            }
+        }
+        
+/*
+	문제] 글꼴바꾸기 버튼을 계속 누를때마다 아래 5가지
+	폰트가 토글되어 적용될수 있도록 함수를 정의하시오.
+	글꼴 : Verdana, 굴림체, 휴먼옛체, 궁서, Impact
+
+	function setFont(){
+		실행부;
+	}
+*/
+    var fontToggle = 0; // 폰트토글을 위한 전역변수
+    function setFont(){
+        // 문제에서 주어진 폰트를 배열로 선언
+        var fontArray = ['Verdana', '굴림체', '휴먼옛체', '궁서', 'Impact'];   
+        // 정수를 5로 나누면 나머지는 0~4까지 생성
+        var fontIndex = fontToggle % 5;
+        // 위에서 구한 수를 인덱스로 폰트 설정
+        pTag.style.fontFamily = fontArray[fontIndex];
+        // 함수를 호출할때마다 1증가
+        fontToggle ++;
+
+    }
+    </script>
+</head>
+<body>
+    <h2>자바스크립트로 CSS제어하기</h2>
+    <input type="button" value="글꼴바꾸기" onclick="setFont();" />
+    <fieldset>
+        <legend>신문기사</legend>
+        <button onclick="fnArticle('+');"> + </button>
+        <button onclick="fnArticle('-');"> - </button>
+        <button onclick="fnArticle('R');"> Red </button>
+        <button onclick="fnArticle('G');"> Green </button>
+        <button onclick="fnArticle('B');"> Blue </button>
+        <button onclick="fnArticle(' ');"> Black </button>
+        <button onclick="fnArticle('Bo');"> 볼드체 </button>
+        <button onclick="fnArticle('No');"> 보통체 </button>
+        <button onclick="fnArticle('Ce');"> 가운데정렬 </button>
+        <button onclick="fnArticle('Le');"> 좌측정렬 </button>
+
+    </fieldset>
+    <p style="font-size:12px;" id="article">
+        오늘의 뉴스<br/>
+        [서울경제] 북한이 신변이상설에 휩싸인 김정은 북한 국무위원장의 유고시 백두혈통이자 
+        <br>
+        여동생인 김여정 노동당 제1부부장이 최고지도자 권한을 대행할 수 있도록 준비 중이라는 
+        <br>
+        일본 언론 보도가 나와 주목된다.
+        <br>
+        요미우리 신문은 한미일 협의 소식통을 인용해 북한에서 작년 말부터 김 제1부부장이 
+        <br>
+        긴급시 최고지도자 권한을 대행하는 준비가 진행되고 있다고 22일 보도했다.
+        <br>
+        보도에 따르면 평양에서 작년 말 노동당 중앙위원회 총회가 개최됐을 때 김 위원장이 
+        <br>
+        사망 등을 이유로 통치를 할 수 없게 될 경우 ‘권한을 모두 김여정에게 집중한다’는 
+        <br>
+        내부 결정이 내려졌다고 전했다. 한미일 소식통은 “그 이후 김여정 명의로 당과 군에 
+        <br>
+        지시문이 많이 내려오고 있다”고 말했다.
+        <br>
+    </p>
+</body>
+</html>
