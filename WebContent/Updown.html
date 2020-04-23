@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Updown</title>
+
+    <script>
+
+        // 시도횟수 초기화
+        var cunt=1;
+
+        // 난수 생성
+        var num = parseInt(Math.random()*100);  
+        console.log("생성된 수 : "+ num);      
+
+        // 게임 함수
+        function fight() {
+
+            // 입력값 가져오기
+            var temp = document.getElementById("here").value;
+            var a = parseInt(temp);
+
+            // 잘못된 입력값 범위처리
+            if(a<1 || a>100 ){
+                alert("1~100 사이의 정수를 입력해주세요");
+                game.src= "./images/down.jpg"
+                return;
+            }
+
+            // 이미지 가져오기
+            var game = document.getElementById("game_img");
+            
+            // 시도횟수 처리    
+            if(cunt == 8){
+                alert("시도횟수가 초과하였습니다. 게임을 재시작합니다");
+                location.reload();
+                return;
+            }   
+            document.getElementById("calc").value = cunt;
+
+            // 콘솔창
+            console.log("입력한 수 : "+ a); 
+            console.log("정답 : "+ num);
+
+            // 승부       
+            if(a>num){
+                alert("입력된 값이 큽니다.");  
+                game.src= "./images/down.jpg"
+                cunt+=1;
+            }
+
+            if(a<num){
+                alert("입력된 값이 작습니다.");   
+                game.src= "./images/up.jpg"  
+                cunt+=1; 
+            }
+
+            if(a==num){
+                alert("정답입니다.");   
+                game.src= "./images/answer.jpeg" 
+            }
+        }
+   
+    </script>
+</head>
+<body>
+    <h2>업다운게임</h2>
+
+    <h3>1~100사이의 숫자를 입력하세요</h3>
+    <br/>
+
+    <h3>시도횟수 : <input type="text" id="calc" 
+            style="font-size:50px; width: 40px; border: 0;"/>회</h3>
+    <br/>
+
+    <div>
+        숫자입력 : 
+        <input type="text" id="here" style = "width: 50px;">
+
+        <input type="button" value="확인" onclick="fight();" />  
+        
+    </div><br/> <br/> <br/>    
+
+    <img id = "game_img" src="./images/updowngame.jpg">
+</body>
+</html>
