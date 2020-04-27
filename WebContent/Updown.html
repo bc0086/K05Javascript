@@ -11,8 +11,12 @@
         var cunt=1;
 
         // 난수 생성
-        var num = parseInt(Math.random()*100);  
+        var num = parseInt(Math.random()*100) +1 ;  
         console.log("생성된 수 : "+ num);      
+        /*
+        난수 생성 구간을 1(최소)~ 100(최대)로 설정했다면, 
+        (Math.random()*최대값)+최소값 해당구간의 난수가 생성된다.
+        */
 
         // 게임 함수
         function fight() {
@@ -78,7 +82,9 @@
         숫자입력 : 
         <input type="text" id="here" style = "width: 50px;">
 
-        <input type="button" value="확인" onclick="fight();" />  
+        <input type="button" value="확인" onclick="fight();" /> 
+
+        <input type="button" value="새로고침" onclick="location.reload();" />
         
     </div><br/> <br/> <br/>    
 
