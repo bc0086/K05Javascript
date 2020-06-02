@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RegiStep01.html</title>
+
+    <script>
+
+    function next(){  
+        var temp1 = document.getElementById("jumin").value.length;
+        var j1 = parseInt(temp1);
+
+        var temp2 = document.getElementById("jnum").value.length;
+        var j2 = parseInt(temp2);
+
+        var temp3 = document.getElementById("iname").value;
+
+       if(j1 < 6 || j2 < 7){ 
+        alert("주민번호를 확인해주세요.");
+        return;
+       }   
+    }
+
+    </script>
+</head>
+<body>
+    <span style="font-size: 15px;">
+    <table border="0" cellpadding="10" width="700" >
+    <colgroup>
+		<col style= "width:25%;" >   
+    </colgroup>	    
+        
+        <tr style="font-size: 15px;" >
+            <td colspan="2"; >실명확인 </td>            
+        </tr>
+
+        <tr>
+            <td>주민번호</td>
+            <td>
+                <input type="text" id="jumin" size="6" maxlength="6" /> 
+                -
+				<input type="password" id="jnum" size="7" maxlength="7" />
+            </td>
+        </tr>
+       
+        <tr>
+			<td>이름</td>
+			<td>
+				<input type="text" id="iname" autofocus size="10">
+            </td>	         
+        </tr>
+
+        <tr>
+            <td></td>
+            <td>
+                <input type="button" value="다음" onclick="next();" /> 
+            </td>
+        </tr>
+
+    </span>
+    </table>
+   
+</body>
+</html>

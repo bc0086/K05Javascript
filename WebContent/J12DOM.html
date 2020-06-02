@@ -9,14 +9,14 @@
 <body>
 
     <script>
-        var getString = function(param){
-            switch(param){
+        var getString = function(param) {
+            switch(param) {
                 case "POL": return "정치";
                 case "ECO": return "경제";
                 case "ENT": return "연예";
             }
         }
-        function fnGetElementsByTag(){
+        function fnGetElementsByTag() {
             /*
             태그명으로 DOM객체 얻어오기. 2개이상 존재할 수 있으므로 
             배열로 얻어오게 된다.
@@ -25,10 +25,10 @@
             var checkString = "", inputString;
 
             // 얻어온 input태그의 요소 갯수만큼 반복
-            for(var i=0; i<inputs.length; i++){
+            for(var i=0; i<inputs.length; i++) {
 
                 // 얻어온 DOM이 checkbox이면서 check된 상태인지를 확인
-                if(inputs[i].type=="checkbox" && inputs[i].checked==true){
+                if(inputs[i].type=="checkbox" && inputs[i].checked==true) {
                     checkString += getString(inputs[i].value)+" ";// 정치 연예
 
                     // 임시삽입
@@ -38,15 +38,15 @@
                     */
                 }
 
-                //type이 text이면서 name속성이 txt인지를 확인
-                if(inputs[i].type=="text" && inputs[i].name=="txt"){
+                // type이 text이면서 name속성이 txt인지를 확인
+                if(inputs[i].type=="text" && inputs[i].name=="txt") {
                     inputString = inputs[i].value;
                 }
             }
             alert("선택한 값:"+ checkString +", 입력한 값:"+ inputString);
         }
     
-        function fnGetDomain(){
+        function fnGetDomain() {
             // a태그를 얻어온다.
             var a_tags = document.getElementsByTagName("a");
             for(var i=0; i<a_tags.length; i++){
